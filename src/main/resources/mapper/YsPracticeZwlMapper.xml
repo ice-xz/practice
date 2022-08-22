@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhang.practice.mapper.YsPracticeZwlMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zhang.practice.pojo.YsPracticeZwl">
+        <id column="id" property="id" />
+        <result column="sname" property="sname" />
+        <result column="sno" property="sno" />
+        <result column="school_name" property="schoolName" />
+        <result column="major" property="major" />
+        <result column="practice_start" property="practiceStart" />
+        <result column="practice_end" property="practiceEnd" />
+        <result column="graduation" property="graduation" />
+        <result column="tel" property="tel" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, sname, sno, school_name, major, practice_start, practice_end, graduation, tel
+    </sql>
+
+    <!--分页查询实习生-->
+    <select id="PagedQuery" parameterType="com.zhang.practice.dto.PageDTO" resultType="com.zhang.practice.pojo.YsPracticeZwl">
+     SELECT TOP ${pageSize} id,sname ,sno ,school_name ,major ,practice_start ,practice_end ,graduation,tel FROM
+         (
+             SELECT TOP (#{pageNumber}*#{pageSize}) ROW_NUMBER() OVER (ORDER BY id) AS RowNum, * FROM ys_practice_zwl
+            <where>
+<!--             <if test="majorname!=null and majorname!=''">-->
+               major like '%${majorname}%'
+<!--             </if>-->
+            </where>
+         ) AS tempTable
+     WHERE RowNum BETWEEN (#{pageNumber}-1)*#{pageSize}+1 AND #{pageNumber}*#{pageSize}
+     ORDER BY RowNum
+    </select>
+</mapper>

@@ -1,0 +1,14 @@
+com\zhang\practice\dto\YsPracticeZwlDTO.class
+com\zhang\practice\mapper\YsPracticeZwlMapper.class
+com\zhang\practice\dto\PageDTO.class
+com\zhang\practice\Util\GlobalControllerAdvice.class
+com\zhang\practice\PracticeApplication.class
+com\zhang\practice\pojo\YsPracticeZwl.class
+com\zhang\practice\controller\BaseController.class
+com\zhang\practice\service\impl\YsPracticeZwlServiceImpl.class
+com\zhang\practice\config\Swagger2config.class
+com\zhang\practice\dto\YsPracticeZwlUpdateDTO.class
+com\zhang\practice\service\IYsPracticeZwlService.class
+com\zhang\practice\pojo\Result.class
+com\zhang\practice\controller\YsPracticeZwlController.class
+com\zhang\practice\config\MybatisPlusConfig.class

@@ -156,6 +156,9 @@ public class YsPracticeZwlServiceImpl extends ServiceImpl<YsPracticeZwlMapper, Y
 
 
 
+
+
+
     @Override
     public Result<IPage<YsPracticeZwl>> MybatisplusQuery(Integer currentPage, Integer size,String major) {
         //开启分页
